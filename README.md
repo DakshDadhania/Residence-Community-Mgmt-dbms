@@ -93,11 +93,11 @@ In this project we created a UrbanUnity: Residence Community Mgmt with user int
 
   - For Client side, cd client
 
-          npm install
+          npm install --legacy-peer-deps
 
   - For Server side, cd server
 
-          npm install
+          npm install --legacy-peer-deps
 
 - Install MySql workbench if you don't have one, and then import the export.sql file under database folder in workbench.
 
@@ -118,10 +118,9 @@ In this project we created a UrbanUnity: Residence Community Mgmt with user int
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Suryah07"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/67333204?v=4?s=100" width="100px;" alt="D K Suryah"/><br /><sub><b>D K Suryah </b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/imtharun"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/80610149?v=4?s=100" width="100px;" alt="Tharunprasth A S"/><br /><sub><b>Tharunprasath A S</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/yuvarraj-sriramkumar"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/69584827?v=4?s=100" width="100px;" alt="Yuvarraj S"/><br /><sub><b>Yuvarraj S</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/shivsrith03"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/105268528?v=4?s=100" width="100px;" alt="Shivanesh S"/><br /><sub><b>Shivanesh S</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/DakshDadhania"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/63968989?v=4" width="100px;" alt="Daksh Dadhania"/><br /><sub><b>Daksh Dadhania</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Zaidk2021"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/93735014?v=4" width="100px;" alt="Zaid Khan"/><br /><sub><b>Zaid Khan</b></sub></a><br /></td>
+
 
   </tr>
 </table>
