@@ -333,6 +333,30 @@ INSERT INTO `tenant` VALUES (601,'nithin','01-apr-02','no',11,19),(602,'rohith',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `visitor`
+--
+
+-- Drop the existing visitor table if it exists
+DROP TABLE IF EXISTS `visitor`;
+
+-- Create the new visitor table
+CREATE TABLE `visitor` (
+  `visitor_id` int NOT NULL AUTO_INCREMENT,
+  `visitor_name` varchar(50) NOT NULL,
+  `phone_number` varchar(15) NOT NULL,
+  `visit_date` datetime NOT NULL,
+  `room_no` int,
+  `block_no` int,
+  PRIMARY KEY (`visitor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `visitor`
+--
+
+-- Add as many records as needed
+
+--
 -- Dumping events for database 'app'
 --
 
@@ -412,7 +436,6 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

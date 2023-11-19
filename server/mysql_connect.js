@@ -35,7 +35,12 @@ function registercomplaint(values,callback)
     callback(err,results);
   })
 }
-
+function getAllVisitors(callback) {
+    const sql = 'SELECT * FROM visitor;';
+    con.query(sql, (err, results) => {
+        callback(err, results);
+    });
+}
 //function to calculate total number of owners
 function totalowner(callback)
 {
@@ -193,6 +198,13 @@ function ownertenantdetails(values,callback)
         callback(err,results);
     })
 }
+// Function to register a visitor
+function registerVisitor(values, callback) {
+    const sql = 'INSERT INTO visitor (visitor_name, phone_number, visit_date, room_no, block_no) VALUES (?, ?, ?, ?, ?)';
+    con.query(sql, values, (err, results) => {
+        callback(err, results);
+    });
+}
 
 //tenant pays maintanence fee
 function paymaintanence(id,callback)
@@ -292,5 +304,7 @@ module.exports = {
     paymaintanence,
     empsalary,
     ownerroomdetails,
-    ownertenantdetails
+    registerVisitor,
+    ownertenantdetails,
+    getAllVisitors
 }

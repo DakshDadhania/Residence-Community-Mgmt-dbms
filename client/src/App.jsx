@@ -17,6 +17,10 @@ import RoomDetails from "./components/RoomDetails";
 import ErrorPage from "./ErrorPage";
 import ComplaintsViewerOwner from "./components/ComplaintsViewerOwner";
 import RoomDetailsOwner from "./components/RoomDetailsOwner";
+import BuildingView from "./components/BuildingView"; // Make sure to import the BuildingView component at the top
+import Visitor from "./components/Visitor";
+import RegVisitor from "./components/RegVisitor"
+
 
 function App() {
   // Sidebar
@@ -26,6 +30,7 @@ function App() {
     "Create owner",
     "Allotting Parking slot",
     "Complaints",
+    "Visitors Entered"
   ];
   const forEmployee = ["Complaints"];
   const forTenant = [
@@ -104,6 +109,14 @@ function App() {
           }
         />
         <Route
+    path="/buildingview"
+    element={
+      <div>
+      <BuildingView />
+    </div>
+    }
+  />
+        <Route
           path="/admin/tenantdetails"
           element={
             <main>
@@ -147,6 +160,7 @@ function App() {
             </main>
           }
         />
+        
         <Route
           path="/tenant/raisingcomplaints"
           element={
@@ -235,6 +249,28 @@ function App() {
             </main>
           }
         />
+         <Route
+          path="/visitor"
+          element={
+            <main>
+              <section className="p-5">
+                <Visitor />
+              </section>
+            </main>
+          }
+        />
+
+        <Route
+          path="/admin/visitorsentered"
+          element={
+            <main>
+              <Header forHam={forAdmin} />
+              <section className="p-5">
+              <RegVisitor />
+              </section>
+            </main>
+          }
+        />
         <Route
           path="/*"
           element={
@@ -243,6 +279,7 @@ function App() {
             </main>
           }
         />
+       
       </Routes>
     </div>
   );

@@ -157,7 +157,36 @@ app.get('/tenantdetails',(req,res)=>
       res.send(result);
     })
 })
+app.get('/getAllVisitors', (req, res) => {
+  db.getAllVisitors((err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error fetching visitors');
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+// Backend code for visitor registration
+app.post('/registerVisitor', (req, res) => {
+  const visitorName = req.body.visitorName;
+  const phoneNumber = req.body.phoneNumber;
+  const roomNumber = req.body.roomNumber;
+  const blockNumber = req.body.blockNumber;
+  const visitDate = new Date(); // Current date and time
 
+  const values = [visitorName, phoneNumber, visitDate, roomNumber, blockNumber];
+
+  // Assuming 'registerVisitor' is a function in 'db' that inserts the data into the visitor table
+  db.registerVisitor(values, (err, result) => {
+      if (err) {
+          console.error(err);
+          res.sendStatus(500); // Internal Server Error
+      } else {
+          res.sendStatus(200); // OK
+      }
+  });
+});
 
 
 //get the owner details fetch all the data from the table
