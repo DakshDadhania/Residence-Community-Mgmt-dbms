@@ -9,6 +9,7 @@ import TenantDetails from "./components/TenantDetails";
 import CreatingOwner from "./components/CreatingOwner";
 import CreatingParkingSlot from "./components/CreatingParkingSlot";
 import ComplaintsViewer from "./components/ComplaintsViewer";
+// import Creating3d from "./components/3ddesign"; 
 import RaisingComplaints from "./components/RaisingComplaints";
 import ParkingSlot from "./components/ParkingSlot";
 import PayMaintenance from "./components/PayMaintenance";
@@ -26,6 +27,7 @@ function App() {
     "Create owner",
     "Allotting Parking slot",
     "Complaints",
+    // '3ddesign'
   ];
   const forEmployee = ["Complaints"];
   const forTenant = [
@@ -136,6 +138,7 @@ function App() {
             </main>
           }
         />
+  
         <Route
           path="/admin/complaints"
           element={

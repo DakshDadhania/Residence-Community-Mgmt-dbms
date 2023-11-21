@@ -1,5 +1,5 @@
 import React from "react";
-import { Hypnosis } from "react-cssfx-loading/lib";
+import { Hypnosis } from "react-cssfx-loading";
 
 const Loader = () => {
   return (

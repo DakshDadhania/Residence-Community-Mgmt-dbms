@@ -11,7 +11,12 @@ function Auth(props) {
   const [isPassword, setIsPassword] = useState(true);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  
   useEffect(() => {
     if (
       inputEl.current.value === "" ||
@@ -86,90 +91,100 @@ function Auth(props) {
   };
 
   return (
-    <div>
-      <div className="flex items-center min-h-screen z-50">
-        <div className="container mx-auto">
-          <div className="max-w-md mx-auto my-10">
-            <div className="text-center">
-              <h1 className="my-3 text-3xl font-semibold text-gray-700 ">
-                UrbanUnity Towers
-              </h1>
-            </div>
-            <div className="m-7">
-              <form onSubmit={submitHandler}>
-                <div className="relative mb-3">
+    <div style={{ 
+      position: 'relative', 
+      backgroundColor: darkMode ? "#000" : "#fff", 
+    }}>
+     <div className="flex items-center justify-between p-4">
+        <button onClick={toggleDarkMode} className="text-lg">
+          🌙
+        </button>
+      </div>
+    <div className="flex items-center min-h-screen z-50">
+      <div className="container mx-auto">
+        <div className="max-w-md mx-auto my-10">
+          <div className="text-center">
+            <h1 className="my-3 text-3xl font-semibold text-gray-700 ">
+              UrbanUnity Towers
+            </h1>
+          </div>
+          <div className="m-7">
+            <form onSubmit={submitHandler}>
+              <div className="relative mb-3">
+                <label
+                  htmlFor="user-id"
+                  className="block mb-2 text-sm text-gray-600"
+                >
+                  User Id
+                </label>
+                <input
+                  ref={inputEl}
+                  type="text"
+                  autoFocus
+                  name="user-id"
+                  required
+                  value={userId}
+                  onChange={() => setUserId(inputEl.current.value)}
+                  id="used-id"
+                  placeholder="User id"
+                  className={`w-full px-3 py-2 placeholder-gray-300 border ${
+                    isName ? "border-gray-300" : "border-red-500"
+                  } 
+                    rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 `}
+                />
+                {!isName && (
+                  <span className="h-2 absolute right-2 top-[0rem] font-semibold text-xs mt-2 block text-red-500">
+                    Invalid username
+                  </span>
+                )}
+              </div>
+              <div className="relative mb-6">
+                <div className="flex justify-between mb-2">
                   <label
-                    htmlFor="user-id"
-                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="password"
+                    className="text-sm text-gray-600 "
                   >
-                    User Id
+                    Password
                   </label>
-                  <input
-                    ref={inputEl}
-                    type="text"
-                    autoFocus
-                    name="user-id"
-                    required
-                    value={userId}
-                    onChange={() => setUserId(inputEl.current.value)}
-                    id="used-id"
-                    placeholder="User id"
-                    className={`w-full px-3 py-2 placeholder-gray-300 border ${
-                      isName ? "border-gray-300" : "border-red-500"
-                    } 
-                      rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 `}
-                  />
-                  {!isName && (
-                    <span className="h-2 absolute right-2 top-[0rem] font-semibold text-xs mt-2 block text-red-500">
-                      Invalid username
-                    </span>
-                  )}
                 </div>
-                <div className="relative mb-6">
-                  <div className="flex justify-between mb-2">
-                    <label
-                      htmlFor="password"
-                      className="text-sm text-gray-600 "
-                    >
-                      Password
-                    </label>
-                  </div>
-                  <input
-                    ref={passEl}
-                    type="password"
-                    required
-                    name="password"
-                    id="password"
-                    value={password}
-                    autoComplete="on"
-                    onChange={() => setPassword(passEl.current.value)}
-                    placeholder="Your Password"
-                    className={`w-full px-3 py-2 placeholder-gray-300 border 
-                    ${
-                      isPassword ? "border-gray-300" : "border-red-500"
-                    } rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 `}
-                  />
-                  {!isPassword && (
-                    <span className="absolute right-2 top-[0rem] font-semibold text-xs mt-2 block text-red-500">
-                      Invalid password
-                    </span>
-                  )}
-                </div>
-                <div className="mb-6">
-                  <button
-                    type="submit"
-                    className="w-full px-3 py-3 font-semibold text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none hover:bg-white hover:text-blue-500 transition-all duration-300 hover:border-blue-500 border-transparent border-2"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              </form>
-            </div>
+                <input
+                  ref={passEl}
+                  type="password"
+                  required
+                  name="password"
+                  id="password"
+                  value={password}
+                  autoComplete="on"
+                  onChange={() => setPassword(passEl.current.value)}
+                  placeholder="Your Password"
+                  className={`w-full px-3 py-2 placeholder-gray-300 border 
+                  ${
+                    isPassword ? "border-gray-300" : "border-red-500"
+                  } rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 `}
+                />
+                {!isPassword && (
+                  <span className="absolute right-2 top-[0rem] font-semibold text-xs mt-2 block text-red-500">
+                    Invalid password
+                  </span>
+                )}
+              </div>
+              <div className="mb-6">
+                <button
+                  type="submit"
+                  className="w-full px-3 py-3 font-semibold text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none hover:bg-white hover:text-blue-500 transition-all duration-300 hover:border-blue-500 border-transparent border-2"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <Particle />
     </div>
+    <Particle />
+  </div>
+
+  
   );
 }
 
